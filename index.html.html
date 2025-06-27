@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sevgi Testi</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 30px;
+            color: white;
+        }
+        .button {
+            padding: 20px;
+            border-radius: 50%;
+            border: none;
+            font-size: 16px;
+            position: absolute;
+            cursor: pointer;
+            color: white;
+        }
+        #correct {
+            background-color: green;
+            left: 40%;
+            top: 250px;
+        }
+        #wrong {
+            background-color: red;
+        }
+        #celebration {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-size: 10vw;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Bu hayatta en çok sevdiğin kişi kim?</h1>
+
+<button class="button" id="correct" onclick="showCelebration()">Alp</button>
+<button class="button" id="wrong">Aryoş + Elif + Selen</button>
+
+<div id="celebration">
+    <div>🎉</div>
+    <div>TEBRİKLER</div>
+</div>
+
+<audio id="applause-sound" src="https://www.soundjay.com/human/applause-8.mp3" preload="auto"></audio>
+
+<script>
+    const wrongButton = document.getElementById("wrong");
+
+    wrongButton.addEventListener("mouseover", function () {
+        const x = Math.floor(Math.random() * (window.innerWidth - 200));
+        const y = Math.floor(Math.random() * (window.innerHeight - 100));
+        wrongButton.style.left = x + "px";
+        wrongButton.style.top = y + "px";
+    });
+
+    function showCelebration() {
+        document.getElementById("applause-sound").play();
+        document.getElementById("celebration").style.display = "flex";
+    }
+</script>
+
+</body>
+</html>
